@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A professional web application that explains different concrete curing methods and their importance in construction projects.
+![home_image](https://github.com/user-attachments/assets/f8f700f2-c16e-440d-af6e-47a679ab11b8)
 
 🔗 **Live App Demo:** [https://concrete-curing-app.streamlit.app/](https://concrete-curing-app.streamlit.app/)
 
