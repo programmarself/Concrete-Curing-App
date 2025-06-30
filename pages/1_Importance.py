@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 
 st.title("Why Curing is Important")
 
@@ -47,18 +46,12 @@ with tab3:
     with col2:
         st.image("assets/curing_time.jpg", width=300)
 
+from app import show_logo  # Import from your main app file
 
-# Reusable logo function
-def show_logo():
-    logo_path = os.path.join("assets", "logo.png")
-    if os.path.exists(logo_path):
-        st.sidebar.image(logo_path, width=150)
-    else:
-        st.sidebar.markdown("""
-        <div style="text-align:center;">
-            <h3>🏗️ The Civil Tales</h3>
-        </div>
-        """, unsafe_allow_html=True)
+# Display logo on this page too
+show_logo()
 
-# Call it on each page
-show_logo()e)
+# Page-specific content
+st.title("Importance of Curing")
+
+
