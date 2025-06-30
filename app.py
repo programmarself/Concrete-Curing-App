@@ -70,6 +70,11 @@ with col2:
     - Increased cracking
     - Poor durability
     """)
+
+# Footer with Font Awesome icons
+st.markdown("---")
+st.markdown("""
+    <style>
     .social-icons a {
         margin: 0 10px;
         color: #1E90FF;
@@ -80,12 +85,7 @@ with col2:
         color: #FF4500;
         transform: scale(1.2);
     }
-
-
-    
-    # Footer with Font Awesome icons
-st.markdown("---")
-st.markdown("""
+    </style>
     <div style='text-align: center; font-size: 16px;'>
       <p>&copy; 2025 Concrete Curing App | All rights reserved</p>
       <p><strong>Developed with ❤️ by Irfan Ullah Khan</strong></p>
@@ -97,4 +97,3 @@ st.markdown("""
       </div>
     </div>
 """, unsafe_allow_html=True)
-
