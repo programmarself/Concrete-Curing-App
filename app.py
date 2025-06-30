@@ -71,6 +71,19 @@ with col2:
     - Poor durability
     """)
     
+     .social-icons a {
+        margin: 0 10px;
+        color: #1E90FF;
+        font-size: 24px;
+        transition: color 0.3s, transform 0.3s;
+    }
+    .social-icons a:hover {
+        color: #FF4500;
+        transform: scale(1.2);
+    }
+
+
+    
     # Footer with Font Awesome icons
 st.markdown("---")
 st.markdown("""
