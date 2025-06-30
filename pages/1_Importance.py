@@ -46,14 +46,20 @@ with tab3:
     with col2:
         st.image("assets/curing_time.jpg", width=300)
 
-# Sidebar with just the logo/title
-st.sidebar.title("The Civil Tales")
-logo_path = os.path.join("assets", "logo.png")
-if os.path.exists(logo_path):
-    st.sidebar.image(logo_path, width=150)
-else:
-    st.sidebar.markdown("""
-    <div style="text-align:center; padding:10px; border:1px solid #ccc; border-radius:5px;">
-        <h3>The Civil Tales</h3>
-    </div>
-    """, unsafe_allow_html=True)
+import streamlit as st
+import os
+
+# Reusable logo function
+def show_logo():
+    logo_path = os.path.join("assets", "logo.png")
+    if os.path.exists(logo_path):
+        st.sidebar.image(logo_path, width=150)
+    else:
+        st.sidebar.markdown("""
+        <div style="text-align:center;">
+            <h3>🏗️ The Civil Tales</h3>
+        </div>
+        """, unsafe_allow_html=True)
+
+# Call it on each page
+show_logo()e)
