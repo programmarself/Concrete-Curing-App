@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import os
 
 # App configuration
 st.set_page_config(
@@ -8,9 +9,34 @@ st.set_page_config(
     layout="wide"
 )
 
+# Function to load images safely
+def load_image(image_path, width=None):
+    try:
+        image = Image.open(image_path)
+        if width:
+            return st.image(image, width=width)
+        return st.image(image)
+    except FileNotFoundError:
+        st.warning(f"Image not found at path: {image_path}")
+        return None
+    except Exception as e:
+        st.error(f"Error loading image: {str(e)}")
+        return None
+
 # Sidebar navigation
 st.sidebar.title("The Civil Tales")
-st.sidebar.image("assets/logo.png", width=150)
+
+# Load logo safely
+logo_path = os.path.join("assets", "logo.png")
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path, width=150)
+else:
+    st.sidebar.markdown("""
+    <div style="text-align:center; padding:10px; border:1px solid #ccc; border-radius:5px;">
+        <h3>The Civil Tales</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
 page = st.sidebar.radio(
     "Navigate",
     ["Home", "Importance of Curing", "Curing Methods", "Curing Calculator"]
@@ -24,7 +50,12 @@ if page == "Home":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.image("assets/home_image.jpg", caption="Proper curing ensures durable concrete")
+        home_image_path = os.path.join("assets", "home_image.jpg")
+        if os.path.exists(home_image_path):
+            st.image(home_image_path, caption="Proper curing ensures durable concrete")
+        else:
+            st.info("Default curing process illustration")
+        
         st.write("""
         Curing is the process of maintaining moisture in the concrete for a fixed period of time after placement. 
         It's the soul of strength, durability, and performance in concrete construction.
@@ -44,5 +75,3 @@ if page == "Home":
         - Increased cracking
         - Poor durability
         """)
-
-# Other pages are in separate files in the pages/ folder
