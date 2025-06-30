@@ -70,8 +70,7 @@ with col2:
     - Increased cracking
     - Poor durability
     """)
-    
-     .social-icons a {
+    .social-icons a {
         margin: 0 10px;
         color: #1E90FF;
         font-size: 24px;
