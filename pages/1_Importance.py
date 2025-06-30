@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 st.title("Why Curing is Important")
 
@@ -46,8 +47,6 @@ with tab3:
     with col2:
         st.image("assets/curing_time.jpg", width=300)
 
-import streamlit as st
-import os
 
 # Reusable logo function
 def show_logo():
