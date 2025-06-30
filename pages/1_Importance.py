@@ -1,4 +1,5 @@
 import streamlit as st
+from app import show_logo  # Import from your main app file
 
 st.title("Why Curing is Important")
 
@@ -46,7 +47,6 @@ with tab3:
     with col2:
         st.image("assets/curing_time.jpg", width=300)
 
-from app import show_logo  # Import from your main app file
 
 # Display logo on this page too
 show_logo()
