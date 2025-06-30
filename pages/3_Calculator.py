@@ -46,3 +46,15 @@ st.info("""
 Note: This is a general guideline. Always follow project specifications 
 and consult with structural engineers for critical applications.
 """)
+
+# Sidebar with just the logo/title
+st.sidebar.title("The Civil Tales")
+logo_path = os.path.join("assets", "logo.png")
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path, width=150)
+else:
+    st.sidebar.markdown("""
+    <div style="text-align:center; padding:10px; border:1px solid #ccc; border-radius:5px;">
+        <h3>The Civil Tales</h3>
+    </div>
+    """, unsafe_allow_html=True)
