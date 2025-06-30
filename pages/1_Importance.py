@@ -48,10 +48,8 @@ with tab3:
         st.image("assets/curing_time.jpg", width=300)
 
 
-# Display logo on this page too
-show_logo()
+from utils import show_logo
 
-# Page-specific content
-st.title("Importance of Curing")
+show_logo()
 
 
