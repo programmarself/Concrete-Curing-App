@@ -1,6 +1,39 @@
 import streamlit as st
 from PIL import Image
+import os
+import requests
+from io import BytesIO
 
+def display_image(image_path, width=None, caption=None, fallback_text=None):
+    """
+    Safely display an image with multiple fallback options
+    """
+    # Try local file first
+    if os.path.exists(image_path):
+        try:
+            image = Image.open(image_path)
+            st.image(image, width=width, caption=caption)
+            return True
+        except Exception as e:
+            st.warning(f"Error loading local image: {str(e)}")
+    
+    # Try online placeholder as fallback
+    try:
+        if fallback_text:
+            placeholder_url = "https://via.placeholder.com/600x400.png?text=" + fallback_text.replace(" ", "+")
+            response = requests.get(placeholder_url)
+            online_image = Image.open(BytesIO(response.content))
+            st.image(online_image, width=width, caption=caption or f"Placeholder: {fallback_text}")
+            return True
+    except Exception as e:
+        st.error(f"Couldn't load image: {str(e)}")
+    
+    # Final fallback to text
+    if fallback_text:
+        st.info(fallback_text)
+    return False
+
+# Main app content
 st.title("Concrete Curing Methods")
 
 method = st.selectbox(
@@ -138,5 +171,3 @@ comparison_data = {
 st.table(comparison_data)
 
 st.caption("Note: All methods require proper execution to be effective. Choose based on project requirements and conditions.")
-
-# Add other methods similarly...
