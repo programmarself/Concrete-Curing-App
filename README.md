@@ -33,8 +33,10 @@ A professional web application that explains different concrete curing methods a
    ```bash
    git clone https://github.com/yourusername/concrete-curing-app.git
    cd concrete-curing-app
+      ```bash
 
-   -------------------------------------------------------------------------------------------------------------------
+
+
 © 2025 Smart Infrastructure Management System (SIMS) | All rights reserved
 <h2 style="font-family: 'poppins'; font-weight: bold; color: Green;">👨💻 By: Irfan Ullah Khan</h2>
 
